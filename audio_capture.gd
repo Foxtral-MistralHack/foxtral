@@ -29,7 +29,7 @@ func _ready() -> void:
 	
 	# Default: Don't send to Master (no monitoring)
 	# Call enable_monitoring(true) to hear microphone through speakers
-	AudioServer.set_bus_send(bus_idx, "")
+	#AudioServer.set_bus_send(bus_idx, "")
 	
 	# Set player to use Record bus
 	audio_stream_player.bus = "Record"

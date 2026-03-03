@@ -8,6 +8,9 @@ class_name Fox
 @export var primary_name:String =""
 @export var speed = 30
 @export var body_color: Color = Color(1, 1, 1, 1)
+@export var wander_radius: float = 100.0
+
+var spawn_position: Vector2
 
 const random_moving_time = 3
 
@@ -73,8 +76,7 @@ class TaskRest:
 				moving_timer.start()
 				
 				moving_timer.timeout.connect(func():moving=false;moving_timer.queue_free())
-				moving_direction= Vector2(randf_range(-1,1),randf_range(-1,1))
-				moving_direction = moving_direction/moving_direction.length()
+				moving_direction = fox._get_biased_direction().normalized()
 			
 		else:
 
@@ -221,6 +223,7 @@ func rest():
 	
 func _ready() -> void:
 
+	spawn_position = global_position
 	animation_player.play("idle")
 	EntityManager.register_fox(self)
 	nametag.text = primary_name
@@ -304,7 +307,16 @@ func _physics_process(delta: float) -> void:
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		velocity += collision.get_normal() * speed * 0.5
-		
-	position.x = clamp(position.x, 16, 304)
-	position.y = clamp(position.y, 32, 164)
+
+func _get_biased_direction() -> Vector2:
+	var to_spawn = spawn_position - global_position
+	var distance_from_spawn := to_spawn.length()
+	
+	# Bias toward spawn increases with distance
+	var bias_strength = clamp(distance_from_spawn / wander_radius, 0.0, 0.8)
+	
+	var random_dir = Vector2(randf_range(-1, 1), randf_range(-1, 1))
+	var biased_dir = random_dir.lerp(to_spawn.normalized(), bias_strength)
+	
+	return biased_dir
 		
