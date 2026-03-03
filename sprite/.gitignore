@@ -1,1 +1,3 @@
 paid/
+# In case to not have any new paid assset in the project, we ignore the new .png files.
+*.png
