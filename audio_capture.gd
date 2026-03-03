@@ -4,8 +4,8 @@ class_name AudioCapture
 
 signal audio_chunk_ready(audio_data: PackedByteArray)
 
-var audio_stream_player = null
-var audio_effect_capture = null
+var audio_stream_player:AudioStreamPlayer = null
+var audio_effect_capture:AudioEffectCapture = null
 var recording: bool = false
 var chunk_size: int = 2048  # samples per chunk
 var last_get: int = 0
@@ -78,7 +78,7 @@ func start_recording(device_name: String = "Default") -> bool:
 	
 	# Enable microphone capture on the Record bus
 	var bus_idx = AudioServer.get_bus_index("Record")
-	AudioServer.set_bus_mute(bus_idx, false)
+	AudioServer.set_bus_mute(bus_idx, true)
 	AudioServer.set_bus_volume_db(bus_idx, 0.0)
 	
 	print("Record bus volume: ", AudioServer.get_bus_volume_db(bus_idx), " dB")
