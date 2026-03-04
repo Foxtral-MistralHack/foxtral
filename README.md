@@ -1,4 +1,11 @@
 
+# ANNOUNCEMENT 
+
+**REALLY IMPORTANT !**
+**We can still reach the final if you vote here :**
+[Iterate Mistral Hackathon - Foxstral](https://hackiterate.com/mistral-worldwide-hackathons?tab=submissions&submission=311d1503-1a48-4a7c-a341-a55d7f81d52f)
+
+
 # Disclaimer and Licence
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details. We have blurred all the paid assets in the project to avoid any copyright issues. The project is intended for educational purposes only and should not be used for commercial applications without proper licensing of the assets. 
@@ -10,6 +17,8 @@ The asset used in this project are from :
 - [2D pixel art fox sprites](https://elthen.itch.io/2d-pixel-art-fox-sprites)
 
 # Presentation
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n4xo83fxAMM?si=0G8XRTlA7F0xA-O0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ![Slide 1](slide1.png)
 ![Slide 2](slide2.png)
